@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <title>Web shop front page</title>
+        <link rel="stylesheet" th:href="@{/style.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <header th:replace="~{fragments/header :: headerFragment}"></header>
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity Of Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item, iter : ${items}">
+                    <td th:text="${item.getName()}"></td>
+                    <td th:text="${item.getDescription()}"></td>
+                    <td th:text="${item.getPrice() + ' CZK'}"></td>
+                    <td th:text="${item.getQuantityOfStock()}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
